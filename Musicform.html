@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        fieldset {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .question input,
+        .question select,
+        .question textarea,
+        .question button {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .question textarea {
+            width: 100%;
+            height: 80px;
+            resize: none;
+        }
+
+        .question button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            width: 49%;
+        }
+
+        .question button:hover {
+            background-color: #45a049;
+        }
+
+        .question input[type="radio"],
+        .question input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .question button.reset {
+            background-color: #f44336;
+        }
+
+        .question button.reset:hover {
+            background-color: #e53935;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Music Survey</h1>
+    </header>
+
+    <div class="container">
+        <form action="submit_survey.php" method="POST">
+            <!-- Name -->
+            <div class="question">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="question">
+                <label for="email">Your Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Music Feedback -->
+            <div class="question">
+                <label for="feedback">Please share your thoughts on your music preferences:</label>
+                <textarea id="feedback" name="feedback" rows="3" cols="60"></textarea>
+            </div>
+
+            <!-- Genre Radio Buttons -->
+            <fieldset>
+                <legend>Preferred Music Genre</legend>
+                <div class="question">
+                    <input type="radio" id="pop" name="genre" value="pop" required>
+                    <label for="pop">Pop</label>
+                    <input type="radio" id="rock" name="genre" value="rock">
+                    <label for="rock">Rock</label>
+                    <input type="radio" id="jazz" name="genre" value="jazz">
+                    <label for="jazz">Jazz</label>
+                    <input type="radio" id="classical" name="genre" value="classical">
+                    <label for="classical">Classical</label>
+                </div>
+            </fieldset>
+
+            <!-- Listening Frequency Select Box -->
+            <div class="question">
+                <label for="frequency">How often do you listen to music?</label>
+                <select id="frequency" name="frequency" required>
+                    <option value="daily">Every day</option>
+                    <option value="few_times_week">A few times a week</option>
+                    <option value="few_times_month">A few times a month</option>
+                    <option value="rarely">Rarely</option>
+                </select>
+            </div>
+
+            <!-- Listening Date Picker -->
+            <div class="question">
+                <label for="listen_date">When did you last listen to music?</label>
+                <input type="date" id="listen_date" name="listen_date" required>
+            </div>
+
+            <!-- Submit and Reset Buttons -->
+            <div class="question">
+                <button type="submit">Submit Survey</button>
+                <button type="reset" class="reset">Reset Form</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
